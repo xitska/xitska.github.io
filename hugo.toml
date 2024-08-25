@@ -1,0 +1,30 @@
+baseURL = 'https://example.org/'
+languageCode = 'en'
+title = 'itska'
+theme = 'risotto'
+DefaultContentLanguage = 'en'
+enableInlineShortcodes = true
+
+sectionPagesMenu = "main"
+ignoreErrors = ['error-remote-getjson']
+
+[params]
+noindex = false
+
+[params.theme]
+palette = 'tokyo-night-dark'
+
+[params.about]
+title = '> itska'
+description = 'resident brain scratcher'
+
+[[params.socialLinks]]
+icon = 'fa-brands fa-github'
+title = 'GitHub'
+url = 'https://github.com/xitska'
+
+[[params.socialLinks]]
+icon = 'fa-solid fa-envelope'
+title = 'Email'
+url = 'mailto:harry@itska.lol'
+
