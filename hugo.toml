@@ -4,6 +4,7 @@ title = 'itska'
 theme = 'risotto'
 DefaultContentLanguage = 'en'
 enableInlineShortcodes = true
+copyright = "© [itska](https://itska.lol)"
 
 sectionPagesMenu = "main"
 ignoreErrors = ['error-remote-getjson']
