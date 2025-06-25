@@ -10,4 +10,5 @@ Hey, I'm Harry. I'm predominantly a reverse engineer with a heavy interest in Wi
     - Kernel dumping
 
 ## Cool Projects
-- [Xbox One Kernel-mode Dumper](https://github.com/xitska/collateral-damage-hpayload/tree/kmodule-dumper) (and it's included import fixer)
+- [**Xbox One Kernel-mode Dumper**](https://github.com/xitska/collateral-damage-hpayload/tree/kmodule-dumper) (and it's included import fixer)
+- [**Collat**](https://github.com/xitska/collat) - Research tool for Xbox One SystemOS based on [*Collateral Damage*](https://github.com/exploits-forsale/collateral-damage)
