@@ -59,7 +59,7 @@ With this in mind, things are pretty simple... right? We just copy the keys, rei
   
 Similar to a typical Windows kernel, these keys are generated at runtime.  
 Windows 11 simply queries the CPU timestamp counter (`rdtsc`) during `KiInitializeKernel` and derives the keys from that.  
-It can be assumed that this is also done on the Xbox but rather than happening during kernel initialization, it *may* instead be handled by the VM manager as these keys are then patched into every function that uses them.  
+It can be assumed that this is also done on the Xbox but rather than happening during kernel initialization, it *may* instead be handled by the VM manager as these keys are then patched into every function that uses them, though this is speculation.   
 Now that we are aware of this, we can simply read the keys out of any function of our choosing (f.e: `RtlImageNtHeaderEx`), and use those in our decryption. *See below for my implementation:*
 ```cpp
 uint64_t debug_block_decrypt(uint64_t module_base, uint64_t data) {
@@ -75,7 +75,7 @@ Using this, I decrypted the export data for each module and created a map of all
 collat::kmodule::get_export("ntoskrnl.exe", "ExAllocatePool2")
 ```
 
-Ultimately, the reason for this encryption is still unknown. Whilst research hasn't been done I would assume the encryption is handled by the VM manager in HostOS, as the VBI, or the *virtual boot image*, doesn't  include encryption on the kernel headers.
+Ultimately, the reason for this encryption is still unknown. Whilst research hasn't been done I would assume the encryption is handled by the VM manager in HostOS, as the VBI, or the *virtual boot image*, doesn't include encryption on the kernel headers.
 
 ### Finally, crafting the ROP chain (without a dispatcher)
 The ability to decrypt exports means we no longer have to rely so much on offsets, making the process of prototyping and crafting a ROP chain **much** simpler.
@@ -86,10 +86,10 @@ The general idea is for our ROP chain is:
 4) Signal our completion event (just for speed and reliability)
 5) Terminate the thread to avoid a bugcheck
 
-Provided we sufficient knowledge of the Microsoft 64-bit calling convention, this should be pretty simple. The main things we need to be aware of are:
+Provided we have sufficient knowledge of the Microsoft 64-bit calling convention, this should be pretty simple. The main things we need to be aware of are:
 - The 32 byte stack shadow space, which is mainly used for saving parameters. Failure to account for this *could* lead to corruption of our ROP chain!
 - Stack alignment, for XMM registers. Some Windows functions make use of *SIMD* instructions meaning the call stack should always be aligned, otherwise the CPU raises a general protection fault!
-- Allocation of space for stack arguments (after the shadow region). In our case, our gadget can adjust the stack by 120 bytes, giving us space for a total of 19 parameters.
+- Allocation of space for stack arguments (after the shadow region). In our case, our gadget can adjust the stack by 120 bytes, giving us space for a total of 19 parameters. This resolves the main issues related to having no dispatcher.
 
 Keeping this in mind we can craft our ROP chain like so:
 ```cpp
