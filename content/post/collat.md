@@ -3,7 +3,7 @@ author = "xitska"
 title = "Collat - Achieving code execution in SystemOS"
 date = "2025-07-18"
 description = "The process of achieving code execution in Xbox One SystemOS."
-
+tags = ['xbox']
 +++
 Last year, a kernel exploit targeting Xbox One SystemOS was released, utilizing [CVE-2024-30088](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-30088). This allowed for the reading and writing of kernel memory. This opened a huge possibility for new research on a recent OS version, and was my personal entry into the Xbox One scene.  
 If you are unaware of the exploit you can find more info on its [GitHub](https://github.com/exploits-forsale/collateral-damage).
