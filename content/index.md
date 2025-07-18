@@ -6,9 +6,9 @@ Hey, I'm Harry. I'm predominantly a reverse engineer with a heavy interest in Wi
     - Generalized kernel research
     - Investigating communication between VMs through *xvio.sys*
     - Documenting Xbox One kernel APIs
-    - Kernel-mode code execution and mitigation research
-    - Kernel dumping
+    - Hypervisor research
+    - Code integrity shenanigans
 
 ## Cool Projects
 - [**Xbox One Kernel-mode Dumper**](https://github.com/xitska/collateral-damage-hpayload/tree/kmodule-dumper) (and it's included import fixer)
-- [**Collat**](https://github.com/xitska/collat) - Research tool for Xbox One SystemOS based on [*Collateral Damage*](https://github.com/exploits-forsale/collateral-damage)
+- [**Collat**](https://github.com/xitska/collat) and it's [blog post](/post/collat) - Research tool for Xbox One SystemOS based on [*Collateral Damage*](https://github.com/exploits-forsale/collateral-damage)
