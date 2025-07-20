@@ -12,7 +12,7 @@ If you are unaware of the exploit you can find more info on its [GitHub](https:/
 With kernel read/write, the next logical step would be to achieve some form of kernel code execution.
 In an ideal world, this would be in the form of either loading a driver, or executing shellcode, but we're exploiting a system where code integrity is enforced via the hypervisor, meaning: 
 - We cannot *simply* allocate executable pages in kernel-mode, or make read/write pages executable, defeating the possibility of running shellcode.
-- We cannot load drivers due to both ***Driver Signature Enforcement (DSE)***, and the [***Xbox Code Integrity***](https://xboxoneresearch.github.io/wiki/security/code-integrity/) ***(XCI)*** catalogues.
+- We cannot load drivers due to both ***Driver Signature Enforcement (DSE)***, and the [***Xbox Code Integrity (XCI)***](https://xboxoneresearch.github.io/wiki/security/code-integrity/) catalogues.
   
 This leaves us with only a selection of possibilities: either overwriting a function pointer ***or*** exploiting the stack to achieve execution via *return-oriented programming*.  
 Whilst overwriting a function pointer would likely be simpler to implement, it imposes huge limitations, due to the presence of ***kCFG***. Not to mention, locating a suitable function pointer to overwrite and take control of would be like finding a needle in a haystack.  
