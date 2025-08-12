@@ -7,7 +7,6 @@ If you're interested, I also enjoy contributing to the [Xbox One Research Wiki](
     - Hypervisor internal workings, hypercalls, and code mapping
     - Inter-partition messaging *via* [XVIO](https://xboxoneresearch.github.io/wiki/development/xvio/xvio-overview/)
     - Investigation into code integrity protection and XCI catalogues
-    - 
 
 ## Cool Projects
 - [**Xbox One Kernel-mode Dumper**](https://github.com/xitska/collateral-damage-hpayload/tree/kmodule-dumper) (and it's included import fixer)
