@@ -31,3 +31,13 @@ icon = 'fa-solid fa-envelope'
 title = 'Email'
 url = 'mailto:harry@itska.lol'
 
+[[params.socialLinks]]
+icon = 'fa-brands fa-x'
+title = 'X'
+url = 'https://x.com/xitska'
+
+[[params.socialLinks]]
+icon = 'fa-brands fa-mastodon'
+title = 'Mastodon'
+url = 'https://infosec.exchange/@xitska'
+rel = 'me'
