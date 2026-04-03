@@ -13,7 +13,7 @@ ignoreErrors = ['error-remote-getjson']
 noindex = false
 
 [params.theme]
-palette = 'tokyo-night-dark'
+palette = 'base16-light'
 
 [params.about]
 title = '> itska'
